@@ -1,3 +1,4 @@
+//nat gateway routing
 resource "aws_route_table" "lee_ngrt" {
   vpc_id = aws_vpc.hello-vpc.id
 
