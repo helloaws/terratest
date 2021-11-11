@@ -14,8 +14,9 @@ data "aws_ami" "amzn" {
   owner = ["amazon"]
 }
 */
+//ec2생성
 resource "aws_instance" "lee_weba" {
-  ami = "ami-04e8dfc09b22389ad"
+  ami = "ami-04e8dfc09b22389ad" //amazon linux ID
   instance_type = "t2.micro"
   key_name = "lee2-key"
   availability_zone = "ap-northeast-2a"
@@ -31,7 +32,7 @@ resource "aws_instance" "lee_weba" {
                   EOF
   
 }
-
+//eip 할당
 resource "aws_eip" "lee_weba_ip" {
   vpc =true
   instance = aws_instance.lee_weba.id
