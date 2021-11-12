@@ -11,7 +11,7 @@ resource "aws_lb_target_group" "lee_albtg" {
     healthy_threshold   = 3
     interval            = 5
     matcher             = "200"
-    path                = "/index.html"
+    path                = "/health.html"
     port                = "traffic-port"
     protocol            = "HTTP"
     timeout             = 2
