@@ -38,6 +38,10 @@ resource "aws_eip" "lee_weba_ip" {
   instance = aws_instance.lee_weba.id
   associate_with_private_ip = "10.0.0.11"
   depends_on = [
-    "aws_internet_gateway.lee_ig"
+    aws_internet_gateway.lee_ig
   ]
+}
+
+output "public_ip" {
+  value = aws_instance.lee_weba.public_ip
 }
