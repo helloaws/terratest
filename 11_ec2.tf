@@ -23,13 +23,7 @@ resource "aws_instance" "lee_weba" {
   private_ip = "10.0.0.11"
   subnet_id = aws_subnet.lee_puba.id //subnet_pub a의 ID
   vpc_security_group_ids = [aws_security_group.lee_sg.id]
-  user_data = <<-EOF
-                  #!/bin/bash
-                  sudo su -
-                  yum install -y httpd
-                  echo "lee-terraform-1" >> /var/www/html/index.html
-                  systemctl start httpd
-                  EOF
+  user_data = file("./intall.sh")
   
 }
 //eip 할당
